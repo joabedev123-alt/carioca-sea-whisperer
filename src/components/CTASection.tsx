@@ -1,4 +1,5 @@
 import { Phone, MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 const CTASection = () => {
   const whatsappLink = "https://wa.me/5522981471247?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação.";
@@ -16,7 +17,7 @@ const CTASection = () => {
             <span className="text-accent">estética e saúde</span>
           </h2>
           <p className="body-lg text-primary-foreground/70 mb-10">
-            Agende sua avaliação e descubra como podemos transformar 
+            Agende sua avaliação e descubra como podemos transformar
             seu sorriso com tratamentos modernos e personalizados.
           </p>
 
@@ -25,10 +26,10 @@ const CTASection = () => {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-whatsapp px-10 py-5 rounded-full text-lg font-medium flex items-center justify-center gap-3 group"
+              className="btn-whatsapp px-10 py-5 rounded-full text-lg font-medium flex items-center justify-center gap-3 group hover:bg-[#25D366] transition-colors duration-300"
             >
-              <MessageCircle className="w-6 h-6" />
-              Agendar pelo WhatsApp
+              <WhatsAppIcon className="w-6 h-6" />
+              Fale com um especialista
             </a>
             <a
               href="tel:+5522981471247"

@@ -112,26 +112,47 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 }
 
 @layer components {
+  .glass-panel {
+    @apply bg-white/80 dark:bg-black/30 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .glass-card-hover {
+    @apply hover:bg-white/90 hover:backdrop-blur-xl hover:border-primary/20 transition-all duration-500;
+  }
+
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 shadow-md hover:shadow-lg;
   }
 
   .btn-gold {
-    @apply bg-gradient-to-r from-[hsl(43,45%,55%)] to-[hsl(43,40%,50%)] text-white hover:from-[hsl(43,45%,50%)] hover:to-[hsl(43,40%,45%)] transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply text-white transition-all duration-500 border border-white/20;
+    background-image: linear-gradient(to right, hsl(43, 60%, 65%), hsl(43, 50%, 55%), hsl(43, 60%, 45%));
+    background-size: 200% auto;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  }
+
+  .btn-gold:hover {
+    background-position: right center;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
   }
 
   .btn-whatsapp {
-    @apply bg-[hsl(142,70%,45%)] text-white hover:bg-[hsl(142,70%,40%)] transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply bg-[#25D366] text-white hover:bg-[#128C7E] transition-all duration-300 shadow-lg hover:shadow-green-500/30;
   }
 
   .card-premium {
-    @apply bg-card rounded-xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-all duration-500;
+    @apply bg-white/50 backdrop-blur-md rounded-2xl border border-white/40 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] hover:-translate-y-1 transition-all duration-500;
   }
 
   .section-padding {
@@ -139,35 +160,36 @@
   }
 
   .container-premium {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto w-full;
   }
 
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-[hsl(43,45%,55%)] to-[hsl(43,40%,45%)] bg-clip-text text-transparent;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, hsl(43, 70%, 60%), hsl(43, 60%, 50%), hsl(43, 70%, 40%));
   }
 
   .heading-xl {
-    @apply text-4xl md:text-5xl lg:text-6xl font-heading font-semibold leading-tight tracking-tight;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-semibold leading-tight tracking-tight drop-shadow-sm;
   }
 
   .heading-lg {
-    @apply text-3xl md:text-4xl font-heading font-semibold leading-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl font-heading font-semibold leading-tight;
   }
 
   .heading-md {
-    @apply text-2xl md:text-3xl font-heading font-medium;
+    @apply text-2xl md:text-3xl md:text-4xl font-heading font-medium;
   }
 
   .body-lg {
-    @apply text-lg md:text-xl font-light leading-relaxed;
+    @apply text-base sm:text-lg md:text-xl font-body font-light leading-relaxed text-muted-foreground/90;
   }
 
   .body-md {
-    @apply text-base md:text-lg font-light leading-relaxed;
+    @apply text-sm sm:text-base md:text-lg font-body font-light leading-relaxed text-muted-foreground/90;
   }
 
   .gold-accent {
-    @apply text-[hsl(43,45%,50%)];
+    @apply text-[hsl(43, 60%, 50%)];
   }
 
   .green-accent {
@@ -176,6 +198,21 @@
 }
 
 @layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-md {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .glass-frosted {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
   .animate-fade-up {
     animation: fadeUp 0.8s ease-out forwards;
   }
@@ -210,6 +247,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -220,6 +258,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -230,6 +269,7 @@
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -241,6 +281,7 @@
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -252,6 +293,7 @@
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -259,9 +301,12 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }

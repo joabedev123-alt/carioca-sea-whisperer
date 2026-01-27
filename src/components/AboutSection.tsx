@@ -1,37 +1,40 @@
 import { MapPin, Award, Stethoscope } from "lucide-react";
+import professionalImage from "@/assets/sobre01/WhatsApp Image 2026-01-26 at 16.38.33 (1).jpeg";
 
 const AboutSection = () => {
   return (
     <section id="sobre" className="section-padding bg-background">
       <div className="container-premium">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Image */}
-          <div className="relative order-2 lg:order-1">
-            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop"
-                alt="Dra. Sidilene Gonçalves - Cirurgiã-Dentista"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
-            </div>
+          <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
+            <div className="relative max-w-xs md:max-w-sm w-full">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src={professionalImage}
+                  alt="Dra. Sidilene Gonçalves - Cirurgiã-Dentista"
+                  className="w-full h-auto object-contain"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
+              </div>
 
-            {/* Floating Credential Card */}
-            <div className="absolute -bottom-6 -right-6 md:-right-10 bg-card p-6 rounded-2xl shadow-xl">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                  <Award className="w-7 h-7 text-primary-foreground" />
-                </div>
-                <div>
-                  <p className="font-heading font-semibold text-foreground text-lg">CRO-RJ 52953</p>
-                  <p className="text-sm text-muted-foreground">Registro Profissional</p>
+              {/* Floating Credential Card */}
+              <div className="absolute -bottom-4 -right-4 bg-card p-4 rounded-2xl shadow-xl z-20">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                    <Award className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <p className="font-heading font-semibold text-foreground text-sm">CRO-RJ 52953</p>
+                    <p className="text-xs text-muted-foreground">Registro Profissional</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-accent/20 rounded-full blur-xl" />
-            <div className="absolute top-1/2 -right-8 w-16 h-16 bg-primary/20 rounded-full blur-lg" />
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -left-4 w-20 h-20 bg-accent/20 rounded-full blur-xl -z-10" />
+              <div className="absolute top-1/2 -right-6 w-12 h-12 bg-primary/20 rounded-full blur-lg -z-10" />
+            </div>
           </div>
 
           {/* Content */}
@@ -39,23 +42,23 @@ const AboutSection = () => {
             <span className="inline-block text-sm font-medium text-accent uppercase tracking-widest mb-4">
               Sobre a Profissional
             </span>
-            
+
             <h2 className="heading-lg text-foreground mb-6">
               Dra. Sidilene Gonçalves
             </h2>
 
             <div className="space-y-6 text-muted-foreground body-md">
               <p>
-                Cirurgiã-dentista apaixonada pela arte de transformar sorrisos, a Dra. Sidilene 
+                Cirurgiã-dentista apaixonada pela arte de transformar sorrisos, a Dra. Sidilene
                 combina técnica refinada com um olhar atento às necessidades individuais de cada paciente.
               </p>
               <p>
-                Especializada em oferecer tratamentos odontológicos modernos, seguros e personalizados, 
-                seu foco está na estética, saúde bucal e bem-estar, sempre buscando resultados naturais 
+                Especializada em oferecer tratamentos odontológicos modernos, seguros e personalizados,
+                seu foco está na estética, saúde bucal e bem-estar, sempre buscando resultados naturais
                 e harmoniosos.
               </p>
               <p>
-                Com atendimento humanizado e uso de tecnologia de ponta, cada consulta é uma 
+                Com atendimento humanizado e uso de tecnologia de ponta, cada consulta é uma
                 experiência de cuidado e excelência.
               </p>
             </div>
