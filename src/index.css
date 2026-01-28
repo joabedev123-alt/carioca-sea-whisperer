@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('bootstrap-icons/font/bootstrap-icons.css');
 
 @tailwind base;
 @tailwind components;
@@ -6,61 +7,63 @@
 
 @layer base {
   :root {
-    /* Premium Dental Clinic Color Palette */
-    --background: 40 20% 98%;
-    --foreground: 220 15% 20%;
+    /* Minimalist Dental Clinic Color Palette */
+    --background: 0 0% 100%;
+    --foreground: 200 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 15% 20%;
+    --card-foreground: 200 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 20%;
+    --popover-foreground: 200 15% 15%;
 
-    /* Elegant Green - Health & Trust */
-    --primary: 158 35% 35%;
+    /* Soft Teal - Clean, Fresh, Dental */
+    --primary: 180 45% 55%;
     --primary-foreground: 0 0% 100%;
 
-    /* Light Gray */
-    --secondary: 220 15% 95%;
-    --secondary-foreground: 220 15% 25%;
+    /* Light Cool Gray */
+    --secondary: 200 15% 96%;
+    --secondary-foreground: 200 15% 20%;
 
-    /* Muted Grays */
-    --muted: 220 10% 92%;
-    --muted-foreground: 220 10% 45%;
+    /* Muted Cool Tones */
+    --muted: 200 10% 94%;
+    --muted-foreground: 200 8% 40%;
 
-    /* Subtle Gold - Premium Accent */
-    --accent: 43 45% 55%;
-    --accent-foreground: 43 50% 15%;
+    /* Refined Gold - Premium Accent */
+    --accent: 40 85% 60%;
+    --accent-foreground: 40 90% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 158 35% 35%;
+    --border: 200 15% 90%;
+    --input: 200 15% 90%;
+    --ring: 180 45% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Custom Premium Colors */
-    --gold: 43 45% 55%;
-    --gold-light: 43 40% 75%;
-    --gold-dark: 43 50% 40%;
-    --green-elegant: 158 35% 35%;
-    --green-light: 158 30% 50%;
-    --gray-warm: 40 10% 50%;
-    --cream: 40 30% 97%;
+    /* Custom Minimalist Colors */
+    --teal: 180 45% 55%;
+    --teal-light: 180 40% 70%;
+    --teal-dark: 180 50% 40%;
+    --aqua: 175 50% 60%;
+    --gold: 40 85% 60%;
+    --gold-light: 40 75% 75%;
+    --gold-dark: 40 90% 45%;
+    --gray-cool: 200 10% 50%;
+    --white-warm: 30 20% 99%;
 
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(40 20% 98%) 0%, hsl(40 15% 94%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(43 45% 60%) 0%, hsl(43 40% 50%) 100%);
-    --gradient-green: linear-gradient(135deg, hsl(158 35% 40%) 0%, hsl(158 35% 30%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 20% 98%) 100%);
+    /* Minimalist Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(180 30% 98%) 100%);
+    --gradient-teal: linear-gradient(135deg, hsl(180 45% 60%) 0%, hsl(180 50% 50%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40 85% 65%) 0%, hsl(40 90% 55%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(200 20% 99%) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(220 15% 20% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(220 15% 20% / 0.1);
-    --shadow-hover: 0 12px 40px -10px hsl(220 15% 20% / 0.15);
-    --shadow-gold: 0 4px 20px -4px hsl(43 45% 55% / 0.3);
+    /* Elegant Shadows */
+    --shadow-soft: 0 2px 15px -3px hsl(200 15% 15% / 0.06);
+    --shadow-card: 0 4px 25px -5px hsl(200 15% 15% / 0.08);
+    --shadow-hover: 0 8px 35px -8px hsl(200 15% 15% / 0.12);
+    --shadow-teal: 0 4px 20px -4px hsl(180 45% 55% / 0.25);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -129,6 +132,32 @@
 
   .glass-card-hover {
     @apply hover:bg-white/90 hover:backdrop-blur-xl hover:border-primary/20 transition-all duration-500;
+  }
+
+  /* Section Backgrounds for Visual Contrast */
+  .bg-section-light {
+    @apply bg-gradient-to-b from-secondary/40 via-secondary/25 to-secondary/10;
+  }
+
+  .bg-section-teal-light {
+    @apply bg-gradient-to-br from-primary/12 via-primary/6 to-background;
+  }
+
+  .bg-section-gray {
+    @apply bg-gradient-to-b from-muted/50 via-muted/30 to-background;
+  }
+
+  .bg-section-teal-medium {
+    background: linear-gradient(135deg,
+        hsl(180 45% 55% / 0.08) 0%,
+        hsl(var(--background)) 50%,
+        hsl(180 45% 55% / 0.08) 100%);
+  }
+
+  .bg-section-pattern {
+    background-color: hsl(var(--muted) / 0.3);
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.08) 1px, transparent 0);
+    background-size: 40px 40px;
   }
 
   .btn-primary {

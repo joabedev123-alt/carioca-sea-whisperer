@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
-import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -11,20 +9,14 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // Determine if at top
       setIsAtTop(currentScrollY < 50);
 
-      // Determine direction and visibility
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        // Scrolling down & not at top -> hide
         setIsVisible(false);
-        setIsMobileMenuOpen(false); // Close mobile menu on scroll
+        setIsMobileMenuOpen(false);
       } else {
-        // Scrolling up -> show
         setIsVisible(true);
       }
-
       setLastScrollY(currentScrollY);
     };
 
@@ -35,9 +27,9 @@ const Header = () => {
   const navLinks = [
     { href: "#sobre", label: "Sobre" },
     { href: "#servicos", label: "Serviços" },
+    { href: "#resultados", label: "Resultados" },
     { href: "#depoimentos", label: "Depoimentos" },
-    { href: "#faq", label: "FAQ" },
-    { href: "#contato", label: "Contato" },
+    { href: "#localizacao", label: "Localização" },
   ];
 
   const whatsappLink = "https://wa.me/5522981471247?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação.";
@@ -47,7 +39,7 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${isVisible ? "translate-y-0" : "-translate-y-full"
         } ${isAtTop
           ? "bg-transparent py-5"
-          : "py-3 bg-white/80 backdrop-blur-md shadow-sm dark:bg-black/80"
+          : "py-3 bg-white/95 backdrop-blur-md shadow-sm"
         }`}
     >
       <div className="container-premium flex items-center justify-between">
@@ -70,7 +62,7 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300"
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all after:duration-300"
             >
               {link.label}
             </a>
@@ -79,26 +71,30 @@ const Header = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-gold px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 hover:!bg-none hover:!bg-[#25D366] transition-colors duration-300"
+            className="px-6 py-2.5 bg-[#25D366] text-white rounded-full text-sm font-medium flex items-center gap-2 hover:bg-[#128C7E] hover:shadow-lg transition-all duration-300"
           >
-            <WhatsAppIcon className="w-4 h-4" />
-            Fale com um especialista
+            <i className="bi-whatsapp text-base"></i>
+            Agendar Consulta
           </a>
         </nav>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden p-2 text-foreground hover:bg-accent/10 rounded-full transition-colors"
+          className="lg:hidden p-2  text-foreground hover:bg-primary/10 rounded-full transition-colors"
           aria-label="Menu"
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isMobileMenuOpen ? (
+            <i className="bi-x text-2xl"></i>
+          ) : (
+            <i className="bi-list text-2xl"></i>
+          )}
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-black/95 backdrop-blur-md border-t border-border shadow-lg transition-all duration-300 origin-top ${isMobileMenuOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
+        className={`lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md border-t border-border shadow-lg transition-all duration-300 origin-top ${isMobileMenuOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
           }`}
       >
         <nav className="container-premium py-6 flex flex-col gap-2">
@@ -107,7 +103,7 @@ const Header = () => {
               key={link.href}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-lg font-medium text-foreground/80 hover:text-primary hover:bg-accent/5 px-4 py-3 rounded-lg transition-all"
+              className="text-lg font-medium text-foreground/80 hover:text-primary hover:bg-primary/5 px-4 py-3 rounded-lg transition-all"
             >
               {link.label}
             </a>
@@ -117,10 +113,10 @@ const Header = () => {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold w-full px-6 py-3 rounded-full text-center font-medium flex items-center justify-center gap-2 mt-2 hover:!bg-none hover:!bg-[#25D366] transition-colors duration-300"
+              className="w-full px-6 py-3 bg-[#25D366] text-white rounded-full text-center font-medium flex items-center justify-center gap-2 mt-2 hover:bg-[#128C7E] transition-all duration-300"
             >
-              <WhatsAppIcon className="w-4 h-4" />
-              Fale com um especialista
+              <i className="bi-whatsapp text-base"></i>
+              Agendar Consulta
             </a>
           </div>
         </nav>
