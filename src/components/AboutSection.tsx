@@ -19,14 +19,14 @@ const AboutSection = () => {
               </div>
 
               {/* Floating Credential Card */}
-              <div className="absolute -bottom-4 -right-4 bg-card p-4 rounded-2xl shadow-xl z-20">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                    <Award className="w-5 h-5 text-primary-foreground" />
+              <div className="absolute bottom-0 right-0 md:-bottom-4 md:-right-4 bg-card p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl z-20 max-w-[12rem] md:max-w-none">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-primary flex items-center justify-center">
+                    <Award className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <p className="font-heading font-semibold text-foreground text-sm">CRO-RJ 52953</p>
-                    <p className="text-xs text-muted-foreground">Registro Profissional</p>
+                    <p className="font-heading font-semibold text-foreground text-xs md:text-sm">CRO-RJ 52953</p>
+                    <p className="text-[10px] md:text-xs text-muted-foreground">Registro Profissional</p>
                   </div>
                 </div>
               </div>

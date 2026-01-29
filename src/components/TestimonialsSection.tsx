@@ -41,7 +41,7 @@ const TestimonialsSection = () => {
             <span className="text-gradient-gold">dizem</span>
           </h2>
           <p className="body-md text-muted-foreground">
-            A satisfação dos nossos pacientes é a nossa maior conquista. 
+            A satisfação dos nossos pacientes é a nossa maior conquista.
             Veja o que eles têm a dizer sobre a experiência.
           </p>
         </div>
@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative p-8 bg-card rounded-2xl shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] transition-all duration-500 group"
+              className="relative p-6 md:p-8 bg-card rounded-2xl shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] transition-all duration-500 group"
             >
               {/* Quote Icon */}
               <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">

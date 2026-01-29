@@ -89,7 +89,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         className="group card-premium overflow-hidden flex flex-col h-full"
         style={{ animationDelay: `${index * 0.1}s` }}
       >
-        <div className="relative w-full h-80 bg-gray-100 flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-64 md:h-80 bg-gray-100 flex items-center justify-center overflow-hidden">
           {service.images || service.videos ? (
             <div className="overflow-hidden w-full h-full" ref={emblaRef}>
               <div className="flex h-full">
@@ -207,11 +207,11 @@ const ServicesSection = () => {
     <section id="servicos" className="section-padding bg-secondary/20">
       <div className="container-premium">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-medium text-primary uppercase tracking-widest mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <span className="inline-block text-sm font-medium text-primary uppercase tracking-widest mb-2">
             Nossos Serviços
           </span>
-          <h2 className="heading-lg text-foreground mb-6">
+          <h2 className="heading-lg text-foreground mb-4">
             Tratamentos especializados para o seu{" "}
             <span className="text-gradient-gold">sorriso perfeito</span>
           </h2>
@@ -222,7 +222,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

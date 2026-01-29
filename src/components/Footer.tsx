@@ -2,7 +2,7 @@ const Footer = () => {
   const whatsappLink = "https://wa.me/5522981471247?text=Olá!%20Gostaria%20de%20mais%20informações.";
 
   return (
-    <footer id="contato" className="bg-gradient-to-b from-foreground to-foreground/95 pt-16 pb-8">
+    <footer id="contato" className="bg-gradient-to-b from-foreground to-foreground/95 pt-16 pb-24 md:pb-12">
       <div className="container-premium">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           {/* Brand */}
@@ -90,11 +90,23 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/50 text-sm text-center md:text-left">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+            <p className="text-white/50 text-sm text-center lg:text-left order-3 lg:order-1">
               © {new Date().getFullYear()} Dra. Sidilene Gonçalves. Todos os direitos reservados.
             </p>
-            <div className="flex gap-6">
+
+            {/* Credits */}
+            <a
+              href="https://camaly.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/40 hover:text-white/80 text-sm transition-all duration-300 flex items-center gap-1.5 group order-2"
+            >
+              Produzida com <span className="text-[12px] animate-pulse">💚</span> por
+              <span className="font-bold tracking-widest group-hover:text-primary transition-colors">CAMALY</span>
+            </a>
+
+            <div className="flex gap-6 order-1 lg:order-3">
               <a href="#" className="text-white/50 hover:text-primary text-sm transition-colors">
                 Política de Privacidade
               </a>

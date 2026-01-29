@@ -1,4 +1,23 @@
+import { useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import video1 from "@/assets/videos02/WhatsApp Video 2026-01-29 at 15.17.27.mp4";
+import video2 from "@/assets/videos02/WhatsApp Video 2026-01-29 at 15.17.29.mp4";
+import video3 from "@/assets/videos02/WhatsApp Video 2026-01-29 at 15.17.31.mp4";
+
 const LocationSection = () => {
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+
+    useEffect(() => {
+        if (!emblaApi) return;
+
+        const autoplay = setInterval(() => {
+            emblaApi.scrollNext();
+        }, 4000);
+
+        return () => clearInterval(autoplay);
+    }, [emblaApi]);
+
+    const videos = [video1, video2, video3];
     const locations = [
         {
             city: "Rio de Janeiro",
@@ -36,6 +55,34 @@ const LocationSection = () => {
                     </p>
                 </div>
 
+                {/* Video Carousel */}
+                <div className="mb-16">
+                    <div className="text-center mb-8">
+                        <h3 className="text-2xl font-heading font-semibold text-foreground">
+                            Conheça Nossa <span className="text-gradient-gold">Estrutura</span>
+                        </h3>
+                    </div>
+
+                    <div className="overflow-hidden" ref={emblaRef}>
+                        <div className="flex gap-6 items-start">
+                            {videos.map((video, index) => (
+                                <div
+                                    key={index}
+                                    className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0"
+                                >
+                                    <div className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-primary/10 bg-black w-fit mx-auto">
+                                        <video
+                                            src={video}
+                                            controls
+                                            className="w-full h-auto max-h-[350px] object-contain"
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
                 {/* Locations Grid */}
                 <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     {locations.map((location, index) => (
@@ -44,47 +91,47 @@ const LocationSection = () => {
                             className="group"
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                            <div className="relative h-full p-8 bg-white rounded-3xl border border-border/50 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] hover:-translate-y-2 transition-all duration-500 overflow-hidden">
+                            <div className="relative h-full p-5 md:p-6 bg-white rounded-3xl border border-border/50 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] hover:-translate-y-2 transition-all duration-500 overflow-hidden">
                                 {/* Header with Gradient */}
                                 <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${location.color}`} />
 
                                 {/* Icon & City */}
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${location.color} flex items-center justify-center shadow-lg`}>
-                                        <i className={`${location.icon} text-3xl text-white`}></i>
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${location.color} flex items-center justify-center shadow-lg`}>
+                                        <i className={`${location.icon} text-2xl text-white`}></i>
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-heading font-bold text-foreground">
+                                        <h3 className="text-xl font-heading font-bold text-foreground">
                                             {location.city}
                                         </h3>
-                                        <p className="text-sm text-muted-foreground uppercase tracking-wider">
+                                        <p className="text-xs text-muted-foreground uppercase tracking-wider">
                                             {location.state}
                                         </p>
                                     </div>
                                 </div>
 
                                 {/* Divider */}
-                                <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
+                                <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-4" />
 
                                 {/* Info */}
-                                <div className="space-y-4">
+                                <div className="space-y-3">
                                     {/* Address */}
                                     <div className="flex items-start gap-3">
-                                        <i className="bi-pin-map text-xl text-primary flex-shrink-0 mt-0.5"></i>
+                                        <i className="bi-pin-map text-lg text-primary flex-shrink-0 mt-0.5"></i>
                                         <div>
-                                            <p className="text-sm font-medium text-foreground mb-1">Endereço</p>
-                                            <p className="text-sm text-muted-foreground">{location.address}</p>
+                                            <p className="text-xs font-medium text-foreground mb-0.5">Endereço</p>
+                                            <p className="text-xs text-muted-foreground">{location.address}</p>
                                         </div>
                                     </div>
 
                                     {/* Phone */}
                                     <div className="flex items-start gap-3">
-                                        <i className="bi-telephone text-xl text-primary flex-shrink-0 mt-0.5"></i>
+                                        <i className="bi-telephone text-lg text-primary flex-shrink-0 mt-0.5"></i>
                                         <div>
-                                            <p className="text-sm font-medium text-foreground mb-1">Telefone</p>
+                                            <p className="text-xs font-medium text-foreground mb-0.5">Telefone</p>
                                             <a
                                                 href={`tel:${location.phone.replace(/\D/g, '')}`}
-                                                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                                                className="text-xs text-muted-foreground hover:text-primary transition-colors"
                                             >
                                                 {location.phone}
                                             </a>
@@ -93,40 +140,42 @@ const LocationSection = () => {
 
                                     {/* Hours */}
                                     <div className="flex items-start gap-3">
-                                        <i className="bi-clock text-xl text-primary flex-shrink-0 mt-0.5"></i>
+                                        <i className="bi-clock text-lg text-primary flex-shrink-0 mt-0.5"></i>
                                         <div>
-                                            <p className="text-sm font-medium text-foreground mb-1">Horário</p>
-                                            <p className="text-sm text-muted-foreground">Agendamento prévio</p>
+                                            <p className="text-xs font-medium text-foreground mb-0.5">Horário</p>
+                                            <p className="text-xs text-muted-foreground">Agendamento prévio</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Actions */}
-                                <div className="mt-6 pt-6 border-t border-border/50 flex gap-3">
+                                <div className="mt-4 pt-4 border-t border-border/50 flex gap-3">
                                     <a
                                         href={`https://wa.me/${location.whatsapp}?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20em%20${location.city}.`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 px-4 py-3 bg-[#25D366] text-white rounded-xl font-medium text-sm flex items-center justify-center gap-2 hover:bg-[#128C7E] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                                        className="flex-1 px-3 py-2.5 bg-[#25D366] text-white rounded-xl font-medium text-sm flex items-center justify-center gap-2 hover:bg-[#128C7E] shadow-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
                                     >
-                                        <i className="bi-whatsapp text-lg"></i>
+                                        <i className="bi-whatsapp text-base"></i>
                                         WhatsApp
                                     </a>
                                     <a
                                         href={`tel:${location.phone.replace(/\D/g, '')}`}
-                                        className="flex-1 px-4 py-3 bg-primary text-white rounded-xl font-medium text-sm flex items-center justify-center gap-2 hover:bg-primary/90 hover:shadow-[var(--shadow-teal)] hover:-translate-y-0.5 transition-all duration-300"
+                                        className="flex-1 px-3 py-2.5 bg-primary text-white rounded-xl font-medium text-sm flex items-center justify-center gap-2 hover:bg-primary/90 shadow-sm hover:shadow-[var(--shadow-glow)] hover:scale-105 transition-all duration-300"
                                     >
-                                        <i className="bi-telephone text-lg"></i>
+                                        <i className="bi-telephone text-base"></i>
                                         Ligar
                                     </a>
                                 </div>
 
                                 {/* Background Decoration */}
-                                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br from-primary/5 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             </div>
                         </div>
                     ))}
                 </div>
+
+
 
                 {/* Professional Info */}
                 <div className="mt-12 max-w-3xl mx-auto p-6 md:p-8 bg-gradient-to-r from-primary/5 via-white to-accent/5 rounded-2xl border border-primary/10 text-center">
