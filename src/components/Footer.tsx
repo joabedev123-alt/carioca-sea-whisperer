@@ -15,7 +15,7 @@ const Footer = () => {
             </div>
             <p className="text-white/70 mb-4 max-w-md leading-relaxed">
               Cirurgiã-Dentista dedicada a transformar sorrisos com excelência,
-              tecnologia e cuidado humanizado.
+              tecnologia e cuidado humanizado. Atendimento Personalizado.
             </p>
             <p className="text-white/90 text-sm font-medium flex items-center gap-2">
               <i className="bi-shield-check text-primary"></i>
@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };
 

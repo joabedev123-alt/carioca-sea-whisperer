@@ -18,30 +18,40 @@ const Index = () => {
           <HeroSection />
         </div>
 
-        {/* Services - Moved up for immediate visibility as requested */}
+        {/* Services - 2nd Section */}
         <div className="bg-white">
           <ServicesSection />
         </div>
 
-        {/* About Section */}
-        <div className="bg-background">
-          <AboutSection />
-        </div>
-
-        {/* Before/After */}
+        {/* Before/After - 3rd Section */}
         <div className="bg-white">
           <BeforeAfterSection />
         </div>
 
-        {/* Testimonials */}
+
+
+        {/* Location & Contact - 5th Section */}
+        <div className="bg-white">
+          <LocationSection />
+        </div>
+
+
+
+
+
+
+
+        {/* About Section - Moved to last section */}
+        <div className="bg-background">
+          <AboutSection />
+        </div>
+
+        {/* Testimonials - Moved to last position */}
         <div className="bg-background">
           <TestimonialsSection />
         </div>
 
-        {/* Location & Contact */}
-        <div className="bg-white">
-          <LocationSection />
-        </div>
+
       </main>
       <Footer />
       <WhatsAppButton />
