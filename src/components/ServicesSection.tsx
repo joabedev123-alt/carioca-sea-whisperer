@@ -30,6 +30,7 @@ const services = [
     images: [
       implantImage1, implantImage2, implantImage3, implantImage4, implantImage5
     ],
+  },
 ];
 
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
