@@ -1,4 +1,4 @@
-import heroVideo from "@/assets/armonização facial/video01.mp4";
+import heroCover from "@/assets/foto de capa.jpeg";
 
 const HeroSection = () => {
   const whatsappLink = "https://wa.me/5522981471247?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação.";
@@ -51,12 +51,9 @@ const HeroSection = () => {
           {/* Hero Video */}
           <div className="relative order-1 lg:order-2 mb-8 lg:mb-0 flex justify-center lg:justify-end">
             <div className="relative rounded-2xl overflow-hidden shadow-lg border-4 border-white max-w-[280px] md:max-w-[380px] w-full">
-              <video
-                src={heroVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
+              <img
+                src={heroCover}
+                alt="Golden Tooth - Odontologia de Excelência"
                 className="w-full h-auto object-cover"
               />
             </div>

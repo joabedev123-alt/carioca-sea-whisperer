@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import { useState } from "react";
 // Importar imagens reais dos tratamentos
 import implantImage1 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.25 (1).jpeg";
 import implantImage2 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.25 (2).jpeg";
@@ -11,18 +10,6 @@ import sidImage from "@/assets/armonização facial/sid01.jpeg";
 
 const BeforeAfterSection = () => {
     const [activeCategory, setActiveCategory] = useState("all");
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
-
-    // Autoplay implementation
-    useEffect(() => {
-        if (!emblaApi) return;
-
-        const autoplay = setInterval(() => {
-            emblaApi.scrollNext();
-        }, 3000); // Scroll every 3 seconds
-
-        return () => clearInterval(autoplay);
-    }, [emblaApi]);
 
     const transformations = [
         {
@@ -107,48 +94,46 @@ const BeforeAfterSection = () => {
                 </div>
 
                 {/* Gallery Grid */}
-                <div className="overflow-hidden" ref={emblaRef}>
-                    <div className="flex gap-6 items-start">
-                        {filteredTransformations.map((transformation, index) => (
-                            <div
-                                key={index}
-                                className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0"
-                                style={{ animationDelay: `${index * 0.1}s` }}
-                            >
-                                <div className="group relative h-auto bg-white rounded-2xl border border-border/50 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                                    {/* Image */}
-                                    <div className="relative overflow-hidden bg-white">
-                                        <img
-                                            src={transformation.image}
-                                            alt={transformation.title}
-                                            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 max-h-[400px]"
-                                        />
-                                        {/* Gradient Overlay */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredTransformations.map((transformation, index) => (
+                        <div
+                            key={index}
+                            className="animate-fade-up"
+                            style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                            <div className="group relative h-auto bg-white rounded-2xl border border-border/50 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] hover:-translate-y-2 transition-all duration-500 overflow-hidden">
+                                {/* Image */}
+                                <div className="relative overflow-hidden bg-white">
+                                    <img
+                                        src={transformation.image}
+                                        alt={transformation.title}
+                                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 max-h-[400px]"
+                                    />
+                                    {/* Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                        {/* Badge */}
-                                        <div className="absolute top-4 right-4 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground shadow-lg z-10">
-                                            <i className={`${categories.find(c => c.id === transformation.category)?.icon} mr-1`}></i>
-                                            {categories.find(c => c.id === transformation.category)?.label}
-                                        </div>
+                                    {/* Badge */}
+                                    <div className="absolute top-4 right-4 px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground shadow-lg z-10">
+                                        <i className={`${categories.find(c => c.id === transformation.category)?.icon} mr-1`}></i>
+                                        {categories.find(c => c.id === transformation.category)?.label}
                                     </div>
-
-                                    {/* Content */}
-                                    <div className="p-6">
-                                        <h3 className="text-lg font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                                            {transformation.title}
-                                        </h3>
-                                        <p className="text-sm text-muted-foreground leading-relaxed">
-                                            {transformation.description}
-                                        </p>
-                                    </div>
-
-                                    {/* Hover Effect Border */}
-                                    <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 rounded-2xl transition-all duration-500 pointer-events-none" />
                                 </div>
+
+                                {/* Content */}
+                                <div className="p-6">
+                                    <h3 className="text-lg font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                                        {transformation.title}
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground leading-relaxed">
+                                        {transformation.description}
+                                    </p>
+                                </div>
+
+                                {/* Hover Effect Border */}
+                                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 rounded-2xl transition-all duration-500 pointer-events-none" />
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
 
                 {/* CTA */}

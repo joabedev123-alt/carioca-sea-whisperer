@@ -1,5 +1,4 @@
-import useEmblaCarousel from "embla-carousel-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ImageLightbox from "@/components/ImageLightbox";
 
 // Implantes Images
@@ -47,18 +46,8 @@ const services = [
 ];
 
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-
-  useEffect(() => {
-    if (emblaApi && (service.images || service.videos)) {
-      const interval = setInterval(() => {
-        emblaApi.scrollNext();
-      }, 3000);
-      return () => clearInterval(interval);
-    }
-  }, [emblaApi, service.images, service.videos]);
 
   const handleImageClick = (e: React.MouseEvent, imageIndex: number) => {
     e.preventDefault();
@@ -89,92 +78,88 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         className="group card-premium overflow-hidden flex flex-col h-full"
         style={{ animationDelay: `${index * 0.1}s` }}
       >
-        <div className="relative w-full h-64 md:h-80 bg-gray-100 flex items-center justify-center overflow-hidden">
-          {service.images || service.videos ? (
-            <div className="overflow-hidden w-full h-full" ref={emblaRef}>
-              <div className="flex h-full">
-                {service.images
-                  ? service.images.map((img, i) => (
-                    <div
-                      key={i}
-                      className="flex-[0_0_100%] min-w-0 h-full flex items-center justify-center bg-gray-50 overflow-hidden relative"
-                    >
-                      <img
-                        src={img}
-                        alt={`${service.title} ${i + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      {/* Floating Zoom Button */}
-                      <button
-                        onClick={(e) => handleImageClick(e, i)}
-                        className="absolute top-4 right-4 z-20 w-12 h-12 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                        aria-label="Ampliar imagem"
-                      >
-                        <i className="bi-arrows-fullscreen text-xl text-primary"></i>
-                      </button>
-                      {/* Overlay on hover */}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none" />
-                    </div>
-                  ))
-                  : service.videos?.map((video, i) => (
-                    <div key={i} className="flex-[0_0_100%] min-w-0 h-full flex items-center justify-center bg-black overflow-hidden relative">
-                      <video
-                        src={video}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        id={`video-${index}-${i}`}
-                      />
-                      {/* Floating Fullscreen Button */}
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          const videoElement = document.getElementById(`video-${index}-${i}`) as HTMLVideoElement;
-                          if (videoElement) {
-                            if (videoElement.requestFullscreen) {
-                              videoElement.requestFullscreen();
-                            }
-                          }
-                        }}
-                        className="absolute top-4 right-4 z-20 w-12 h-12 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                        aria-label="Tela cheia"
-                      >
-                        <i className="bi-arrows-fullscreen text-xl text-primary"></i>
-                      </button>
-                      {/* Overlay on hover */}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none" />
-                    </div>
-                  ))}
-              </div>
-            </div>
-          ) : (
-            // This else branch is for services without images or videos, which is not currently in the `services` array.
-            // If a service had a single `image` property instead of `images` or `videos`, this would render.
-            <div className="w-full h-full overflow-hidden">
-              {/* Assuming a fallback image or placeholder if neither images nor videos are present */}
-              <img
-                src={""} // Placeholder for service.image, as it's not defined in the current service structure
-                alt={service.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            </div>
-          )}
+        {/* Title and Description at Top */}
+        <div className="p-6 pb-4">
+          <h3 className="font-heading text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+            {service.title}
+          </h3>
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            {service.description}
+          </p>
         </div>
 
-        <div className="p-6 flex-grow flex flex-col justify-between">
-          <div>
-            <h3 className="font-heading text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-              {service.title}
-            </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-              {service.description}
-            </p>
-          </div>
+        {/* Media Grid */}
+        <div className="px-6 pb-6 flex-grow">
+          {service.images ? (
+            <div className="grid grid-cols-2 gap-3">
+              {service.images.map((img, i) => (
+                <div
+                  key={i}
+                  className={`relative bg-gray-100 rounded-lg overflow-hidden ${i === 0 ? 'col-span-2 h-48' : 'h-32'
+                    }`}
+                >
+                  <img
+                    src={img}
+                    alt={`${service.title} ${i + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Floating Zoom Button */}
+                  <button
+                    onClick={(e) => handleImageClick(e, i)}
+                    className="absolute top-2 right-2 z-20 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                    aria-label="Ampliar imagem"
+                  >
+                    <i className="bi-arrows-fullscreen text-lg text-primary"></i>
+                  </button>
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none" />
+                </div>
+              ))}
+            </div>
+          ) : service.videos ? (
+            <div className="grid grid-cols-2 gap-3">
+              {service.videos.map((video, i) => (
+                <div
+                  key={i}
+                  className={`relative bg-black rounded-lg overflow-hidden ${i === 0 ? 'col-span-2 h-48' : 'h-32'
+                    }`}
+                >
+                  <video
+                    src={video}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    id={`video-${index}-${i}`}
+                  />
+                  {/* Floating Fullscreen Button */}
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      const videoElement = document.getElementById(`video-${index}-${i}`) as HTMLVideoElement;
+                      if (videoElement) {
+                        if (videoElement.requestFullscreen) {
+                          videoElement.requestFullscreen();
+                        }
+                      }
+                    }}
+                    className="absolute top-2 right-2 z-20 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+                    aria-label="Tela cheia"
+                  >
+                    <i className="bi-arrows-fullscreen text-lg text-primary"></i>
+                  </button>
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none" />
+                </div>
+              ))}
+            </div>
+          ) : null}
+        </div>
 
+        {/* CTA Link at Bottom */}
+        <div className="px-6 pb-6">
           <a
             href={whatsappLink}
             target="_blank"
