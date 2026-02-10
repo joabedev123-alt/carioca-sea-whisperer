@@ -1,4 +1,4 @@
-import heroCover from "@/assets/foto de capa.jpeg";
+import heroCover from "@/assets/videos02/sidlene.png";
 
 const HeroSection = () => {
   const whatsappLink = "https://wa.me/5522981471247?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação.";

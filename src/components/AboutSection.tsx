@@ -12,7 +12,7 @@ const AboutSection = () => {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src={professionalImage}
-                  alt="Dra. Sidilene Gonçalves - Cirurgiã-Dentista"
+                  alt="Dra. Sidilene Rodrigues - Cirurgiã-Dentista"
                   className="w-full h-auto object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
@@ -44,7 +44,7 @@ const AboutSection = () => {
             </span>
 
             <h2 className="heading-lg text-foreground mb-6">
-              Dra. Sidilene Gonçalves
+              Dra. Sidilene Rodrigues
             </h2>
 
             <div className="space-y-6 text-muted-foreground body-md">

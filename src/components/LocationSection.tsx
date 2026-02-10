@@ -51,7 +51,7 @@ const LocationSection = () => {
                         Atendimento em <span className="text-gradient-gold">RJ e BH</span>
                     </h2>
                     <p className="body-md text-muted-foreground">
-                        Agende sua consulta e transforme seu sorriso com a Dra. Sidilene Gonçalves
+                        Agende sua consulta e transforme seu sorriso com a Dra. Sidilene Rodrigues
                     </p>
                 </div>
 
@@ -185,7 +185,7 @@ const LocationSection = () => {
                         </div>
                         <div className="text-center md:text-left">
                             <h4 className="text-lg md:text-xl font-heading font-semibold text-foreground mb-1">
-                                Dra. Sidilene Gonçalves
+                                Dra. Sidilene Rodrigues
                             </h4>
                             <p className="text-sm md:text-base text-muted-foreground">
                                 Cirurgiã-Dentista • CRO-RJ 52953 • Atendimento Personalizado

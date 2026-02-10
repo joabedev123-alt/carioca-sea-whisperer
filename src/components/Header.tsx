@@ -45,10 +45,10 @@ const Header = () => {
       <div className="container-premium flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
-          <img src="/fiveicon01.png" alt="Dra. Sidilene Gonçalves Logo" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+          <img src="/fiveicon01.png" alt="Dra. Sidilene Rodrigues Logo" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
           <div className="flex flex-col">
             <span className="font-heading text-lg md:text-2xl font-semibold text-foreground leading-tight">
-              Dra. Sidilene Gonçalves
+              Dra. Sidilene Rodrigues
             </span>
             <span className="text-[10px] md:text-xs text-muted-foreground font-body tracking-wider">
               Cirurgiã-Dentista • CRO-RJ 52953

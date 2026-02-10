@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-4">
               <img src="/fiveicon01.png" alt="Logo" className="w-12 h-12" />
               <h3 className="font-heading text-2xl font-semibold text-white">
-                Dra. Sidilene Gonçalves
+                Dra. Sidilene Rodrigues
               </h3>
             </div>
             <p className="text-white/70 mb-4 max-w-md leading-relaxed">
@@ -92,7 +92,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             <p className="text-white/50 text-sm text-center lg:text-left order-3 lg:order-1">
-              © {new Date().getFullYear()} Dra. Sidilene Gonçalves. Todos os direitos reservados.
+              © {new Date().getFullYear()} Dra. Sidilene Rodrigues. Todos os direitos reservados.
             </p>
 
             {/* Credits */}

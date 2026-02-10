@@ -145,7 +145,7 @@ const BeforeAfterSection = () => {
                                 <div className="relative w-full max-w-[300px] rounded-2xl overflow-hidden shadow-lg border-4 border-white/50">
                                     <img
                                         src={sidImage}
-                                        alt="Dra. Sidilene Gonçalves"
+                                        alt="Dra. Sidilene Rodrigues"
                                         className="w-full h-auto"
                                     />
                                 </div>
