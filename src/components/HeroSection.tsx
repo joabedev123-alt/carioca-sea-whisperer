@@ -22,7 +22,7 @@ const HeroSection = () => {
             <div className="absolute -top-20 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
 
             <h1 className="heading-xl mb-6 text-primary drop-shadow-sm">
-              <span className="text-gradient-gold">Cuidado</span> com seu sorriso
+              Transforme seu sorriso com <span className="text-gradient-gold">excelência</span>.
             </h1>
 
             <p className="body-lg mb-8 max-w-xl mx-auto lg:mx-0 text-foreground/80">
@@ -39,7 +39,6 @@ const HeroSection = () => {
                 <i className="bi-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
                 Fale com um especialista
               </a>
-
             </div>
           </div>
 
