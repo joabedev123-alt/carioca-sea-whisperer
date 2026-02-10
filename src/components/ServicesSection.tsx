@@ -15,6 +15,9 @@ import clinicaImage3 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01
 import clinicaImage4 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.05.jpeg";
 import clinicaImage5 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.06 (1).jpeg";
 
+// Harmonização Image
+import harmoniaImage from "@/assets/armonização facial/sid01.jpeg";
+
 
 const services = [
   {
@@ -28,7 +31,7 @@ const services = [
     title: "Implantes Dentários",
     description: "Recupere seu sorriso com implantes de alta qualidade e resultados duradouros.",
     images: [
-      implantImage1, implantImage2, implantImage3, implantImage4, implantImage5
+      implantImage1, implantImage2, implantImage3, implantImage4, implantImage5, harmoniaImage
     ],
   },
 ];
