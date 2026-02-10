@@ -82,7 +82,7 @@ const BeforeAfterSection = () => {
                         <button
                             key={category.id}
                             onClick={() => setActiveCategory(category.id)}
-                            className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${activeCategory === category.id
+                            className={`px-6 py-3 min-h-[44px] rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 ${activeCategory === category.id
                                 ? "bg-primary text-white shadow-[var(--shadow-teal)]"
                                 : "bg-white border border-border text-foreground hover:border-primary hover:text-primary"
                                 }`}
