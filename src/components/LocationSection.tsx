@@ -1,23 +1,6 @@
-import { useEffect } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import video1 from "@/assets/videos02/WhatsApp Video 2026-01-29 at 15.17.27.mp4";
-import video2 from "@/assets/videos02/WhatsApp Video 2026-01-29 at 15.17.29.mp4";
-import video3 from "@/assets/videos02/WhatsApp Video 2026-01-29 at 15.17.31.mp4";
+
 
 const LocationSection = () => {
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
-
-    useEffect(() => {
-        if (!emblaApi) return;
-
-        const autoplay = setInterval(() => {
-            emblaApi.scrollNext();
-        }, 4000);
-
-        return () => clearInterval(autoplay);
-    }, [emblaApi]);
-
-    const videos = [video1, video2, video3];
     const locations = [
         {
             city: "Rio de Janeiro",
@@ -48,40 +31,14 @@ const LocationSection = () => {
                         Onde Estamos
                     </span>
                     <h2 className="heading-lg text-foreground mb-6">
-                        Atendimento em <span className="text-gradient-gold">RJ e BH</span>
+                        Atendimento em <span className="text-gradient-gold">Rio de Janeiro e Belo Horizonte</span>
                     </h2>
                     <p className="body-md text-muted-foreground">
                         Agende sua consulta e transforme seu sorriso com a Dra. Sidilene Rodrigues
                     </p>
                 </div>
 
-                {/* Video Carousel */}
-                <div className="mb-16">
-                    <div className="text-center mb-8">
-                        <h3 className="text-2xl font-heading font-semibold text-foreground">
-                            Conheça Nossa <span className="text-gradient-gold">Estrutura</span>
-                        </h3>
-                    </div>
 
-                    <div className="overflow-hidden" ref={emblaRef}>
-                        <div className="flex gap-6 items-start">
-                            {videos.map((video, index) => (
-                                <div
-                                    key={index}
-                                    className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0"
-                                >
-                                    <div className="relative rounded-2xl overflow-hidden shadow-lg border-2 border-primary/10 bg-black w-fit mx-auto">
-                                        <video
-                                            src={video}
-                                            controls
-                                            className="w-full h-auto max-h-[350px] object-contain"
-                                        />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
 
                 {/* Locations Grid */}
                 <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

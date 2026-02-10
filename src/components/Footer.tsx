@@ -2,7 +2,7 @@ const Footer = () => {
   const whatsappLink = "https://wa.me/5522981471247?text=Olá!%20Gostaria%20de%20mais%20informações.";
 
   return (
-    <footer id="contato" className="bg-gradient-to-b from-foreground to-foreground/95 pt-16 pb-24 md:pb-12">
+    <footer id="contato" className="bg-gradient-to-b from-foreground to-foreground/95 pt-12 md:pt-16 pb-12 md:pb-12">
       <div className="container-premium">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           {/* Brand */}

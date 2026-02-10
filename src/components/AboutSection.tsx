@@ -49,17 +49,12 @@ const AboutSection = () => {
 
             <div className="space-y-6 text-muted-foreground body-md">
               <p>
-                Cirurgiã-dentista apaixonada pela arte de transformar sorrisos, a Dra. Sidilene
-                combina técnica refinada com um olhar atento às necessidades individuais de cada paciente.
+                Especialista em Implantodontia e Periodontia, com atuação completa como Clínico Geral,
+                unindo técnica, experiência e cuidado humanizado.
               </p>
               <p>
-                Especializada em oferecer tratamentos odontológicos modernos, seguros e personalizados,
-                seu foco está na estética, saúde bucal e bem-estar, sempre buscando resultados naturais
-                e harmoniosos.
-              </p>
-              <p>
-                Com atendimento humanizado e uso de tecnologia de ponta, cada consulta é uma
-                experiência de cuidado e excelência.
+                Ampla experiência em Cirurgia Oral Menor, incluindo exodontia de terceiros molares,
+                garantindo tratamentos seguros, eficazes e com excelência.
               </p>
             </div>
 
@@ -80,7 +75,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <p className="font-medium text-foreground text-sm">Especialidades</p>
-                  <p className="text-muted-foreground text-sm">Estética, Implantes, Harmonização</p>
+                  <p className="text-muted-foreground text-sm">Implantes Dentários, Reabilitação Oral</p>
                 </div>
               </div>
             </div>

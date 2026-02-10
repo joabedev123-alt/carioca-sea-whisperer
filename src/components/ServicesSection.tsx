@@ -1,6 +1,13 @@
 import { useState } from "react";
 import ImageLightbox from "@/components/ImageLightbox";
 
+// Implantes Images
+import implantImage1 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.25 (1).jpeg";
+import implantImage2 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.25 (2).jpeg";
+import implantImage3 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.25 (3).jpeg";
+import implantImage4 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.26.jpeg";
+import implantImage5 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.58.jpeg";
+
 // Clínica Geral Images
 import clinicaImage1 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.40.53.jpeg";
 import clinicaImage2 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.04.jpeg";
@@ -9,7 +16,10 @@ import clinicaImage4 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01
 import clinicaImage5 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.06 (1).jpeg";
 
 
+
+
 const services = [
+
   {
     title: "Clínica Geral",
     description: "Tratamentos preventivos e restauradores para manter sua saúde bucal em dia.",
@@ -21,7 +31,7 @@ const services = [
     title: "Implantes Dentários",
     description: "Recupere seu sorriso com implantes de alta qualidade e resultados duradouros.",
     images: [
-      clinicaImage1, clinicaImage2, clinicaImage3, clinicaImage4, clinicaImage5
+      implantImage1, implantImage2, implantImage3, implantImage4, implantImage5
     ],
   },
 ];
@@ -143,7 +153,7 @@ const ServicesSection = () => {
             <span className="text-gradient-gold">sorriso perfeito</span>
           </h2>
           <p className="body-md text-muted-foreground">
-            Oferecemos uma gama completa de procedimentos odontológicos e estéticos,
+            Oferecemos uma gama completa de procedimentos odontológicos e restauradores,
             sempre com foco em resultados naturais e duradouros.
           </p>
         </div>

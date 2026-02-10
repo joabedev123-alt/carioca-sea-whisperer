@@ -15,7 +15,7 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="container-premium mt-16 md:mt-20 relative z-10">
+      <div className="container-premium mt-24 md:mt-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Content */}
           <div className="text-center lg:text-left order-2 lg:order-1 relative z-10 animate-fade-up">
