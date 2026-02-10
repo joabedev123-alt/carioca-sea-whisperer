@@ -15,11 +15,6 @@ import clinicaImage3 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01
 import clinicaImage4 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.05.jpeg";
 import clinicaImage5 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.06 (1).jpeg";
 
-// Harmonização Facial Videos
-import harmoniaVideo1 from "@/assets/armonização facial/WhatsApp Video 2026-01-26 at 16.42.49.mp4";
-import harmoniaVideo2 from "@/assets/armonização facial/WhatsApp Video 2026-01-26 at 16.42.55.mp4";
-import harmoniaVideo3 from "@/assets/armonização facial/WhatsApp Video 2026-01-26 at 16.42.58.mp4";
-import harmoniaVideo4 from "@/assets/armonização facial/WhatsApp Video 2026-01-26 at 16.43.01.mp4";
 
 const services = [
   {
@@ -35,14 +30,6 @@ const services = [
     images: [
       implantImage1, implantImage2, implantImage3, implantImage4, implantImage5
     ],
-  },
-  {
-    title: "Harmonização Facial",
-    description: "Realce sua beleza natural com procedimentos estéticos personalizados.",
-    videos: [
-      harmoniaVideo1, harmoniaVideo2, harmoniaVideo3, harmoniaVideo4
-    ],
-  },
 ];
 
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
@@ -108,45 +95,6 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
                     onClick={(e) => handleImageClick(e, i)}
                     className="absolute top-2 right-2 z-20 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
                     aria-label="Ampliar imagem"
-                  >
-                    <i className="bi-arrows-fullscreen text-lg text-primary"></i>
-                  </button>
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none" />
-                </div>
-              ))}
-            </div>
-          ) : service.videos ? (
-            <div className="grid grid-cols-2 gap-3">
-              {service.videos.map((video, i) => (
-                <div
-                  key={i}
-                  className={`relative bg-black rounded-lg overflow-hidden ${i === 0 ? 'col-span-2 h-48' : 'h-32'
-                    }`}
-                >
-                  <video
-                    src={video}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    id={`video-${index}-${i}`}
-                  />
-                  {/* Floating Fullscreen Button */}
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      const videoElement = document.getElementById(`video-${index}-${i}`) as HTMLVideoElement;
-                      if (videoElement) {
-                        if (videoElement.requestFullscreen) {
-                          videoElement.requestFullscreen();
-                        }
-                      }
-                    }}
-                    className="absolute top-2 right-2 z-20 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                    aria-label="Tela cheia"
                   >
                     <i className="bi-arrows-fullscreen text-lg text-primary"></i>
                   </button>
