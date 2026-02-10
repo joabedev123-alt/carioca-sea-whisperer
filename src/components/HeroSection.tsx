@@ -22,11 +22,11 @@ const HeroSection = () => {
             <div className="absolute -top-20 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
 
             <h1 className="heading-xl mb-6 text-primary drop-shadow-sm">
-              Transforme seu sorriso com <span className="text-gradient-gold">excelência</span> e cuidado
+              <span className="text-gradient-gold">Cuidado</span> com seu sorriso
             </h1>
 
             <p className="body-lg mb-8 max-w-xl mx-auto lg:mx-0 text-foreground/80">
-              Oferecemos tratamentos odontológicos modernos e humanizados para você conquistar a confiança que merece. Do clínico geral à estética avançada.
+              Com os Implantes dentários, você recupera: Saúde, Autoestima e alegria de sorrir.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -37,14 +37,9 @@ const HeroSection = () => {
                 className="btn-modern flex items-center justify-center gap-2 group"
               >
                 <i className="bi-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
-                Agendar Consulta
+                Fale com um especialista
               </a>
-              <a
-                href="#servicos"
-                className="glass-card px-8 py-3 text-primary rounded-full font-bold hover:bg-white/80 transition-all duration-300 text-center shadow-sm hover:shadow-md hover:-translate-y-1"
-              >
-                Conheça nossos Serviços
-              </a>
+
             </div>
           </div>
 
