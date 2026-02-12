@@ -43,8 +43,8 @@ const HeroSection = () => {
           </div>
 
           {/* Hero Video */}
-          <div className="relative order-1 lg:order-2 mb-8 lg:mb-0 flex justify-center lg:justify-end">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg border-4 border-white max-w-[280px] md:max-w-[380px] w-full">
+          <div className="relative order-1 lg:order-2 mb-8 lg:mb-0 flex justify-center lg:justify-end lg:-mt-20">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg border-4 border-white max-w-[300px] md:max-w-[420px] w-full">
               <img
                 src={heroCover}
                 alt="Golden Tooth - Odontologia de Excelência"

@@ -1,150 +1,24 @@
-import { useState } from "react";
-import ImageLightbox from "@/components/ImageLightbox";
-
-// Implantes Images
-import implantImage1 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.25 (1).jpeg";
-import implantImage2 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.25 (2).jpeg";
-import implantImage3 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.25 (3).jpeg";
-import implantImage4 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.26.jpeg";
-import implantImage5 from "@/assets/implnate/WhatsApp Image 2026-01-26 at 16.44.58.jpeg";
-
-// Clínica Geral Images
-import clinicaImage1 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.40.53.jpeg";
-import clinicaImage2 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.04.jpeg";
-import clinicaImage3 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.05 (1).jpeg";
-import clinicaImage4 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.05.jpeg";
-import clinicaImage5 from "@/assets/implnate/clinicageral/WhatsApp Image 2026-01-26 at 16.41.06 (1).jpeg";
-
-
-
-
-const services = [
-
-  {
-    title: "Clínica Geral",
-    description: "Tratamentos preventivos e restauradores para manter sua saúde bucal em dia.",
-    images: [
-      clinicaImage1, clinicaImage2, clinicaImage3, clinicaImage4, clinicaImage5
-    ],
-  },
-  {
-    title: "Implantes Dentários",
-    description: "Recupere seu sorriso com implantes de alta qualidade e resultados duradouros.",
-    images: [
-      implantImage1, implantImage2, implantImage3, implantImage4, implantImage5
-    ],
-  },
-];
-
-const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
-
-  const handleImageClick = (e: React.MouseEvent, imageIndex: number) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (service.images) {
-      setLightboxIndex(imageIndex);
-      setLightboxOpen(true);
-    }
-  };
-
-  const handleNext = () => {
-    if (service.images) {
-      setLightboxIndex((prev) => (prev + 1) % service.images.length);
-    }
-  };
-
-  const handlePrev = () => {
-    if (service.images) {
-      setLightboxIndex((prev) => (prev - 1 + service.images.length) % service.images.length);
-    }
-  };
-
-  const whatsappLink = "https://wa.me/5522981471247?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços.";
-
-  return (
-    <>
-      <div
-        className="group card-premium overflow-hidden flex flex-col h-full"
-        style={{ animationDelay: `${index * 0.1}s` }}
-      >
-        {/* Title and Description at Top */}
-        <div className="p-6 pb-4">
-          <h3 className="font-heading text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-            {service.title}
-          </h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            {service.description}
-          </p>
-        </div>
-
-        {/* Media Grid */}
-        <div className="px-6 pb-6 flex-grow">
-          {service.images ? (
-            <div className="grid grid-cols-2 gap-3">
-              {service.images.map((img, i) => (
-                <div
-                  key={i}
-                  className={`relative bg-gray-100 rounded-lg overflow-hidden ${i === 0 ? 'col-span-2 h-48' : 'h-32'
-                    }`}
-                >
-                  <img
-                    src={img}
-                    alt={`${service.title} ${i + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {/* Floating Zoom Button */}
-                  <button
-                    onClick={(e) => handleImageClick(e, i)}
-                    className="absolute top-2 right-2 z-20 w-10 h-10 bg-white/90 hover:bg-white backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                    aria-label="Ampliar imagem"
-                  >
-                    <i className="bi-arrows-fullscreen text-lg text-primary"></i>
-                  </button>
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 pointer-events-none" />
-                </div>
-              ))}
-            </div>
-          ) : null}
-        </div>
-
-        {/* CTA Link at Bottom */}
-        <div className="px-6 pb-6">
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0"
-          >
-            Saiba mais
-            <i className="bi-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-
-      {/* Lightbox */}
-      {lightboxOpen && service.images && (
-        <ImageLightbox
-          images={service.images}
-          currentIndex={lightboxIndex}
-          onClose={() => setLightboxOpen(false)}
-          onNext={handleNext}
-          onPrev={handlePrev}
-          title={service.title}
-        />
-      )}
-    </>
-  );
-};
+import ClinicaGeral1 from "./ClinicaGeral1";
+import ClinicaGeral2 from "./ClinicaGeral2";
+import ClinicaGeral3 from "./ClinicaGeral3";
+import ClinicaGeral4 from "./ClinicaGeral4";
+import ClinicaGeral5 from "./ClinicaGeral5";
+import ClinicaGeral6 from "./ClinicaGeral6";
+import ImplanteCard1 from "./ImplanteCard1";
+import ImplanteCard2 from "./ImplanteCard2";
+import ImplanteCard3 from "./ImplanteCard3";
+import ImplanteCard4 from "./ImplanteCard4";
+import ImplanteCard5 from "./ImplanteCard5";
+import ImplanteAntesDepoisCard from "./ImplanteAntesDepoisCard";
 
 const ServicesSection = () => {
+  const whatsappLink = "https://wa.me/5522981471247?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços.";
+
   return (
     <section id="servicos" className="section-padding bg-secondary/20">
       <div className="container-premium">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block text-sm font-medium text-primary uppercase tracking-widest mb-2">
             Nossos Serviços
           </span>
@@ -158,12 +32,68 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index} />
-          ))}
+        {/* Clínica Geral Section */}
+        <div className="mb-20">
+          <div className="text-center mb-10">
+            <h3 className="heading-md text-3xl mb-3">Clínica Geral</h3>
+            <p className="body-md text-muted-foreground max-w-2xl mx-auto">
+              Tratamentos preventivos e restauradores para manter sua saúde bucal em dia.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <ClinicaGeral1 />
+            <ClinicaGeral2 />
+            <ClinicaGeral3 />
+            <ClinicaGeral4 />
+            <ClinicaGeral5 />
+            <ClinicaGeral6 />
+          </div>
+
+          <div className="mt-8 text-center">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center gap-2"
+            >
+              Saiba mais
+              <i className="bi-whatsapp"></i>
+            </a>
+          </div>
         </div>
+
+        {/* Implantes Section */}
+        <div>
+          <div className="text-center mb-10">
+            <h3 className="heading-md text-3xl mb-3">Implantes Dentários</h3>
+            <p className="body-md text-muted-foreground max-w-2xl mx-auto">
+              Recupere seu sorriso com implantes de alta qualidade e resultados duradouros.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <ImplanteCard1 />
+            <ImplanteCard2 />
+            <ImplanteCard3 />
+            <ImplanteCard4 />
+            <ImplanteCard5 />
+            <ImplanteAntesDepoisCard />
+          </div>
+
+          <div className="mt-8 text-center">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-flex items-center gap-2"
+            >
+              Saiba mais
+              <i className="bi-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   );

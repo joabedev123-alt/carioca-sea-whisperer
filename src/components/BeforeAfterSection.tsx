@@ -95,7 +95,7 @@ const BeforeAfterSection = () => {
                                     <img
                                         src={transformation.image}
                                         alt={transformation.title}
-                                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 max-h-[300px] md:max-h-[400px]"
+                                        className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>
 
