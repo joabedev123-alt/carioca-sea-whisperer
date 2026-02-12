@@ -12,11 +12,7 @@ const ImplanteAntesDepoisCard = () => {
                     <span className="text-white font-medium text-lg">Saiba mais</span>
                 </div>
             </div>
-            <div className="p-6 text-center">
-                <h3 className="text-xl font-heading font-semibold text-foreground group-hover:text-primary transition-colors">
-                    Implantes Dentários 6
-                </h3>
-            </div>
+
         </div>
     );
 };
