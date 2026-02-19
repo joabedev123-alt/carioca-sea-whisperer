@@ -26,7 +26,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="body-lg mb-8 max-w-xl mx-auto lg:mx-0 text-foreground/80">
-              Com os Implantes dentários, você recupera: Saúde, Autoestima e alegria de sorrir.
+              Com os Implantes dentários, você recupera: saúde, autoestima e alegria de sorrir.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

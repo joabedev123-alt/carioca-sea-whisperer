@@ -1,11 +1,25 @@
 import { useState } from "react";
 // Importar imagens reais dos tratamentos
+import beforeAfter1 from "@/assets/antes01/WhatsApp Image 2026-01-26 at 16.45.40.jpeg";
+import beforeAfter2 from "@/assets/antes01/WhatsApp Image 2026-01-26 at 16.45.41.jpeg";
 
 
 const BeforeAfterSection = () => {
     const [activeCategory, setActiveCategory] = useState("all");
 
-    const transformations = [
+    const transformationsGroup1 = [
+        {
+            image: beforeAfter1,
+            category: "implantes",
+            title: "Reabilitação Oral",
+            description: "Sorriso renovado com naturalidade"
+        },
+        {
+            image: beforeAfter2,
+            category: "implantes",
+            title: "Implante Dentário",
+            description: "Recuperação estética e funcional"
+        },
         {
             image: "/fotos0202/WhatsApp Image 2026-01-26 at 17.13.00.jpeg",
             category: "implantes",
@@ -23,13 +37,10 @@ const BeforeAfterSection = () => {
             category: "implantes",
             title: "Prótese sobre Implante",
             description: "Resultado natural e duradouro"
-        },
-        {
-            image: "/fotos0303/01.jpeg",
-            category: "implantes",
-            title: "Implante Dentário",
-            description: "Transformação completa do sorriso"
-        },
+        }
+    ];
+
+    const transformationsGroup2 = [
         {
             image: "/fotos0303/02.jpeg",
             category: "implantes",
@@ -59,10 +70,7 @@ const BeforeAfterSection = () => {
             category: "implantes",
             title: "Carga Imediata",
             description: "Sorriso novo em pouco tempo"
-        },
-
-
-
+        }
     ];
 
     return (
@@ -81,11 +89,11 @@ const BeforeAfterSection = () => {
                     </p>
                 </div>
 
-                {/* Gallery Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {transformations.map((transformation, index) => (
+                {/* Gallery Grid 1 */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                    {transformationsGroup1.map((transformation, index) => (
                         <div
-                            key={index}
+                            key={`group1-${index}`}
                             className="animate-fade-up"
                             style={{ animationDelay: `${index * 0.1}s` }}
                         >
@@ -95,13 +103,40 @@ const BeforeAfterSection = () => {
                                     <img
                                         src={transformation.image}
                                         alt={transformation.title}
-                                        className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+                                        className="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
                                 </div>
 
                                 {/* Hover Effect Border */}
                                 <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 rounded-2xl transition-all duration-500 pointer-events-none" />
                             </div>
+
+                        </div>
+                    ))}
+                </div>
+
+                {/* Gallery Grid 2 */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {transformationsGroup2.map((transformation, index) => (
+                        <div
+                            key={`group2-${index}`}
+                            className="animate-fade-up"
+                            style={{ animationDelay: `${index * 0.1}s` }}
+                        >
+                            <div className="group relative h-auto bg-white rounded-2xl border border-border/50 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] hover:-translate-y-2 transition-all duration-500 overflow-hidden">
+                                {/* Image */}
+                                <div className="relative overflow-hidden bg-white">
+                                    <img
+                                        src={transformation.image}
+                                        alt={transformation.title}
+                                        className="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                </div>
+
+                                {/* Hover Effect Border */}
+                                <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/20 rounded-2xl transition-all duration-500 pointer-events-none" />
+                            </div>
+
                         </div>
                     ))}
                 </div>

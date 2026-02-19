@@ -1,5 +1,5 @@
 import { MapPin, Award, Stethoscope } from "lucide-react";
-import professionalImage from "@/assets/sobre01/WhatsApp Image 2026-01-26 at 16.38.33 (1).jpeg";
+import professionalImage from "@/assets/capanova/WhatsApp Image 2026-01-29 at 14.10.17 (2).jpeg";
 
 const AboutSection = () => {
   return (
@@ -50,11 +50,8 @@ const AboutSection = () => {
             <div className="space-y-6 text-muted-foreground body-md">
               <p>
                 Especialista em Implantodontia e Periodontia, com atuação completa como Clínico Geral,
-                unindo técnica, experiência e cuidado humanizado.
-              </p>
-              <p>
-                Ampla experiência em Cirurgia Oral Menor, incluindo exodontia de terceiros molares,
-                garantindo tratamentos seguros, eficazes e com excelência.
+                unindo técnica, experiência e cuidado humanizado. Ampla experiência em Cirurgia Oral Menor,
+                incluindo exodontia de terceiros molares, garantindo tratamentos seguros, eficazes e com excelência.
               </p>
             </div>
 

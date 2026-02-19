@@ -3,11 +3,11 @@ import ClinicaGeral2 from "./ClinicaGeral2";
 import ClinicaGeral3 from "./ClinicaGeral3";
 import ClinicaGeral4 from "./ClinicaGeral4";
 import ClinicaGeral5 from "./ClinicaGeral5";
-import ClinicaGeral6 from "./ClinicaGeral6";
+
 import ImplanteCard1 from "./ImplanteCard1";
-import ImplanteCard2 from "./ImplanteCard2";
+
 import ImplanteCard3 from "./ImplanteCard3";
-import ImplanteCard4 from "./ImplanteCard4";
+
 import ImplanteCard5 from "./ImplanteCard5";
 import ImplanteAntesDepoisCard from "./ImplanteAntesDepoisCard";
 
@@ -27,8 +27,8 @@ const ServicesSection = () => {
             <span className="text-gradient-gold">sorriso perfeito</span>
           </h2>
           <p className="body-md text-muted-foreground">
-            Oferecemos uma gama completa de procedimentos odontológicos e restauradores,
-            sempre com foco em resultados naturais e duradouros.
+            Oferecemos uma ampla variedade de tratamentos odontológicos e restauradores,
+            sempre priorizando resultados naturais, harmoniosos e duradouros.
           </p>
         </div>
 
@@ -41,13 +41,13 @@ const ServicesSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             <ClinicaGeral1 />
             <ClinicaGeral2 />
             <ClinicaGeral3 />
-            <ClinicaGeral4 />
             <ClinicaGeral5 />
-            <ClinicaGeral6 />
+            <ClinicaGeral4 />
+
           </div>
 
           <div className="mt-8 text-center">
@@ -72,11 +72,11 @@ const ServicesSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             <ImplanteCard1 />
-            <ImplanteCard2 />
+
             <ImplanteCard3 />
-            <ImplanteCard4 />
+
             <ImplanteCard5 />
             <ImplanteAntesDepoisCard />
           </div>
